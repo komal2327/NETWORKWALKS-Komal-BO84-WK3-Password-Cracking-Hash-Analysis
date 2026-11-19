@@ -32,149 +32,113 @@ The objective was to understand how password hashes work, explore password-crack
 
 ---
 
-# W3-PM1: Password Cracking with John the Ripper
+# W3-PM1: Password Cracking using John the Ripper (GUI)
 
 ### Objective
-To understand password-cracking techniques using John the Ripper and explore how dictionary attacks can identify weak passwords from their corresponding hashes.
-
-### Tool Used
-- John the Ripper
-- Kali Linux
-- Custom Wordlist
-
-### Practical Activities
-1. Installed and verified John the Ripper in Kali Linux.
-2. Generated a sample password hash.
-3. Created a custom wordlist containing test passwords.
-4. Executed a dictionary-based password attack.
-5. Observed the password recovery process.
-6. Verified the recovered password.
-
-### Commands Used
-
-**Check installation**
-```bash
-john --version
-```
-
-**Generate a sample MD5 hash**
-```bash
-echo -n "Cyber123" | md5sum
-```
-
-**Create a wordlist**
-```bash
-printf "admin\npassword\nCyber123\nwelcome\n" > wordlist.txt
-```
-
-**Perform dictionary attack**
-```bash
-john --format=raw-md5 --wordlist=wordlist.txt hash.txt
-```
-
-**Display recovered password**
-```bash
-john --show --format=raw-md5 hash.txt
-```
-
-### Key Learnings
-- Understanding password hashes.
-- Dictionary-based password attacks.
-- Wordlist creation and usage.
-- Password recovery using John the Ripper.
-- Importance of strong password policies.
-
----
-
-# W3-PM2: Password Cracking with NetworkWalks Tools
-
-### Objective
-To explore online hashing and password-cracking utilities and understand how hash generation and dictionary-based password recovery work.
+To recover the password of a provided encrypted PDF using John the Ripper GUI by extracting its password hash and processing it through the tool.
 
 ### Tools Used
+- John the Ripper (GUI)
+- John.exe
+- OnlineHashCrack PDF Hash Extractor
+- Notepad
 
-**1. NetworkWalks Hash Calculator**
+### Practical Methodology
 
-https://networkwalks.com/hash-calculator/
+**Step 1: Installation and Configuration**
+- Installed and launched John the Ripper GUI.
+- Opened the Settings section.
+- Browsed and configured the location of the `john.exe` executable file.
 
-Used to explore hash generation and PDF password hash extraction.
+**Step 2: PDF Hash Extraction**
+- Downloaded the provided encrypted PDF file.
+- Opened the OnlineHashCrack PDF Hash Extractor.
+- Uploaded the encrypted PDF to extract its password hash.
 
-**2. NetworkWalks Password Cracker**
+Tool: https://www.onlinehashcrack.com/tools-pdf-hash-extractor.php
 
-https://networkwalks.com/password-cracker/
+**Step 3: Hash File Creation**
+- Copied the extracted hash value.
+- Opened Notepad and saved the hash in a text file named `hash1.txt`.
 
-Used to understand dictionary-based PDF password recovery.
+**Step 4: Password Cracking**
+- Opened the hash file using John the Ripper GUI.
+- Executed the password-cracking process.
+- Retrieved the recovered PDF password.
 
-### Practical Activities
+**Step 5: Flag Extraction**
+- Opened the encrypted PDF using the recovered password.
+- Accessed the document contents.
+- Retrieved the flag provided inside the PDF.
 
-1. Explored the NetworkWalks Hash Calculator.
-2. Generated hashes using sample input.
-3. Created a password-protected test PDF.
-4. Extracted the PDF password hash.
-5. Used the Password Cracker to perform a dictionary attack.
-6. Observed and verified the password recovery result.
-
-### Key Learnings
-- Understanding hash generation.
-- Identifying different hash formats.
-- PDF password hash extraction.
-- Dictionary-based password recovery.
-- Understanding password complexity and security.
+### Result
+Successfully recovered the password of the encrypted PDF using John the Ripper GUI and extracted the flag.
 
 ---
 
-## 🔍 Technical Comparison
+# W3-PM2: Password Cracking using NetworkWalks Tools
 
-| Feature | John the Ripper | NetworkWalks Tools |
+### Objective
+To explore browser-based PDF hash extraction and password-cracking utilities using NetworkWalks tools.
+
+### Tools Used
+- NetworkWalks Hash Calculator
+- NetworkWalks Password Cracker
+- Encrypted PDF file
+
+### Practical Methodology
+
+**Step 1: PDF Hash Extraction**
+- Accessed the NetworkWalks Hash Calculator.
+- Uploaded the provided encrypted PDF file.
+- Generated and extracted the PDF password hash.
+
+Tool: https://networkwalks.com/hash-calculator/
+
+**Step 2: Password Cracking**
+- Copied the extracted hash value.
+- Opened the NetworkWalks Password Cracker.
+- Submitted the hash for password recovery.
+- Executed the password-cracking process.
+- Retrieved the recovered password.
+
+Tool: https://networkwalks.com/password-cracker/
+
+**Step 3: Flag Extraction**
+- Opened the encrypted PDF using the recovered password.
+- Accessed the document contents.
+- Retrieved the flag contained inside the PDF.
+
+### Result
+Successfully recovered the encrypted PDF password using NetworkWalks tools and extracted the flag.
+
+---
+
+## Technical Comparison
+
+| Parameter | W3-PM1: John the Ripper | W3-PM2: NetworkWalks |
 |---|---|---|
-| Platform | Kali Linux / CLI | Web-based |
-| Main Purpose | Password auditing | Hash analysis and PDF password recovery |
-| Attack Method | Dictionary and other supported modes | Dictionary attack |
-| Custom Wordlist | Supported | Supported by Password Cracker |
-| Practical Focus | General password auditing | PDF password recovery and hash generation |
+| Platform | Desktop GUI | Web-based |
+| Hash Extraction | OnlineHashCrack | NetworkWalks Hash Calculator |
+| Password Cracking | John the Ripper GUI | NetworkWalks Password Cracker |
+| Hash Input | `hash1.txt` | Direct hash submission |
+| Final Objective | PDF password recovery | PDF password recovery |
+| Outcome | Flag extracted | Flag extracted |
+
+## Key Learnings
+
+- Understanding PDF password hashes and hash extraction.
+- Configuring John the Ripper GUI with its executable.
+- Managing extracted hashes using text files.
+- Exploring browser-based password recovery tools.
+- Understanding the password recovery workflow.
+- Accessing protected files after successful password recovery.
+- Recognizing the importance of strong PDF passwords.
+
+## Disclaimer
+
+These practical exercises were performed for educational purposes using the encrypted PDF files provided for the internship tasks.
 
 ---
 
-## 🧠 Overall Learning Outcomes
-
-Through these practical exercises, I gained knowledge of:
-
-- Password hashing and hash formats.
-- Dictionary-based password attacks.
-- Password recovery methodologies.
-- Usage of John the Ripper.
-- Online hash analysis utilities.
-- Importance of secure password storage.
-- Common password weaknesses and security practices.
-
-## 🔐 Security Recommendations
-
-- Use long and unique passwords.
-- Avoid commonly used passwords.
-- Use multi-factor authentication (MFA).
-- Store passwords using secure, salted password-hashing algorithms such as Argon2id.
-- Perform password audits only with proper authorization.
-
-## ⚙️ Lab Environment
-
-- Operating System: Kali Linux
-- Tool: John the Ripper
-- Online Tools: NetworkWalks
-- Attack Type: Dictionary Attack
-- Testing: Self-created sample hashes and password-protected PDF
-
-## ⚠️ Disclaimer
-
-All practical exercises are intended for educational and authorized security-testing purposes. Only self-created sample passwords, hashes, and test files were used.
-
-## 📚 References
-
-- John the Ripper: https://www.openwall.com/john/
-- NetworkWalks Hash Calculator: https://networkwalks.com/hash-calculator/
-- NetworkWalks Password Cracker: https://networkwalks.com/password-cracker/
-
----
-
-**Week 3 Submission | Cybersecurity Internship**
-
-Learning through practical implementation and continuous exploration of cybersecurity concepts.
+**Week 3 Submission | Password Cracking & Hash Analysis**
