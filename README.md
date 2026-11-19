@@ -71,8 +71,12 @@ Tool: https://www.onlinehashcrack.com/tools-pdf-hash-extractor.php
 - Accessed the document contents.
 - Retrieved the flag provided inside the PDF.
 
+**Step 6: Flag Extraction**
+- Did the same for other two provided encrypted file.
+- Retrieved the flag provided inside the PDF
+
 ### Result
-Successfully recovered the password of the encrypted PDF using John the Ripper GUI and extracted the flag.
+Successfully recovered the password of the encrypted PDFs using John the Ripper GUI and extracted the flags.
 
 ---
 
